@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nav_formlogin/screen/inforScreen.dart';
+import 'package:nav_formlogin/NaviScreen/inforScreen.dart';
 
 class LobbyScreen extends StatelessWidget {
   @override
@@ -9,6 +9,28 @@ class LobbyScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text('Lobby Screen'),
         ),
+        drawer: Drawer(
+            child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('4 Season',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white)),
+              decoration: BoxDecoration(color: Colors.blue),
+            ),
+            ListTile(
+              title: Text('Spring'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (contexxt) => InformationScreen()));
+              },
+            )
+          ],
+        )),
         body: Container(
           padding: EdgeInsets.fromLTRB(10, 100, 10, 100),
           constraints: BoxConstraints.expand(),
