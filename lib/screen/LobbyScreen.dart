@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nav_formlogin/NaviScreen/inforScreen.dart';
+import 'package:nav_formlogin/NaviScreen/SpringScreen.dart';
+import 'package:nav_formlogin/NaviScreen/Winter.dart';
+import 'package:nav_formlogin/NaviScreen/autumn.dart';
 
 class LobbyScreen extends StatelessWidget {
   @override
@@ -12,27 +14,75 @@ class LobbyScreen extends StatelessWidget {
         drawer: Drawer(
             child: ListView(
           children: <Widget>[
-            DrawerHeader(
-              child: Text('4 Season',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white)),
-              decoration: BoxDecoration(color: Colors.blue),
+            Container(
+              child: DrawerHeader(
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage('assets/image/picDrawer.jpg'))),
+                  child: Stack(children: <Widget>[
+                    Positioned(
+                        bottom: 12.0,
+                        left: 16.0,
+                        child: Text('Introducing 4 seasons',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500))),
+                  ])),
             ),
             ListTile(
-              title: Text('Spring'),
+              title: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text('Winter'),
+                  )
+                ],
+              ),
               onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (contexxt) => InformationScreen()));
+                        builder: (contexxt) => WinterSeasonScreen()));
+              },
+            ),
+            ListTile(
+              title: Row(
+                children: <Widget>[
+                  // Icon((Icons.)),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text('Spring'),
+                  )
+                ],
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SpringScreen()));
+              },
+            ),
+            ListTile(
+              title: Row(
+                children: <Widget>[
+                  // Icon((Icons.)),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text('Autumn'),
+                  )
+                ],
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AutumnScreen()));
               },
             )
           ],
         )),
         body: Container(
-          padding: EdgeInsets.fromLTRB(10, 100, 10, 100),
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
           constraints: BoxConstraints.expand(),
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.end,
@@ -69,13 +119,9 @@ class LobbyScreen extends StatelessWidget {
                             child: RaisedButton(
                               color: Colors.blue,
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            InformationScreen()));
+                                Navigator.pop(context);
                               },
-                              child: Text('Next screen',
+                              child: Text('Back formLogin',
                                   style: TextStyle(
                                       fontSize: 16,
                                       fontStyle: FontStyle.italic,

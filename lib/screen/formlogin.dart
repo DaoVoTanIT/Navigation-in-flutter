@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nav_formlogin/screen/LobbyScreen.dart';
@@ -6,9 +8,11 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login Screen'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Login Screen'),
+      // ),
+      // body: ListView(
+      //   children: [
       body: Container(
           padding: EdgeInsets.fromLTRB(30, 0, 30, 0), //l/t/r/bt
           constraints: BoxConstraints.expand(),
@@ -17,14 +21,22 @@ class LoginScreen extends StatelessWidget {
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                height: 200,
-                width: 350,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    image: new DecorationImage(
-                  image: new ExactAssetImage('assets/image/pic_login.gif'),
-                  fit: BoxFit.cover,
-                )),
+                  height: 200,
+                  width: 200,
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        image:
+                            new ExactAssetImage('assets/image/pic_login.gif'),
+                        fit: BoxFit.cover,
+                      ))),
+              Padding(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Text(
+                  'Welcome to login',
+                  style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic),
+                ),
               ),
               TextField(
                 keyboardType: TextInputType.phone,
@@ -63,9 +75,15 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              Text(
+                'Đăng kí|Quên mật khẩu',
+                style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
               )
             ],
           )),
+      //   ],
+      // )
     );
   }
 }
