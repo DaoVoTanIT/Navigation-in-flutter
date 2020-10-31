@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nav_formlogin/NaviScreen/SpringScreen.dart';
+import 'package:nav_formlogin/NaviScreen/SummerScreen.dart';
 import 'package:nav_formlogin/NaviScreen/Winter.dart';
 import 'package:nav_formlogin/NaviScreen/autumn.dart';
 
@@ -77,6 +78,21 @@ class LobbyScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AutumnScreen()));
+              },
+            ),
+            ListTile(
+              title: Row(
+                children: <Widget>[
+                  // Icon((Icons.)),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Text('Summer'),
+                  )
+                ],
+              ),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SummerScreen()));
               },
             )
           ],
