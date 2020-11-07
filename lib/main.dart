@@ -11,6 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter demo Navigation',
         theme: ThemeData.light(),
-        home: LoginScreen());
+        home: MyCustomForm());
   }
 }
